@@ -138,10 +138,10 @@ figure.unstarted:after {
     body > div:first-of-type {
         -webkit-flex-direction: column; /* Safari */
         flex-direction: column;
-        position: relative;
+        /*position: relative;
         height: auto;
         top: auto;
-        left: auto;
+        left: auto;*/
     }
 
     nav {
@@ -158,17 +158,26 @@ figure.unstarted:after {
         flex-direction: row;
         max-width: none;
         height: auto;
+        min-height: 40px;
     }
 
     main {
-        -webkit-flex-grow: 0;
-        flex-grow: 0;
-        -webkit-flex-shrink: 0;
-        flex-shrink: 0;
+        -webkit-flex-grow: 1;
+        flex-grow: 1;
+        -webkit-flex-shrink: 1;
+        flex-shrink: 1;
         -webkit-order: 1;
         order: 1;
+        position: relative;
     }
 
+    figure {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
 
     nav h1 {
         -webkit-flex-grow: 0;
@@ -182,6 +191,12 @@ figure.unstarted:after {
         max-width: none;
     }
 
+    figure:before {
+        display: none;
+        width: auto;
+        padding-top: 0;
+    }
+
     nav ol {
         -webkit-flex-grow: 1;
         flex-grow: 1;
@@ -189,11 +204,10 @@ figure.unstarted:after {
         display: flex;
         -webkit-flex-direction: row; /* Safari */
         flex-direction: row;
-        -webkit-align-items: flex-start; /* Safari */
-        align-items:         flex-start;
         overflow-x: auto;
         overflow-y: visible;
         margin-left: 1em;
+        margin-bottom: 0;
         padding-left: 0;
         padding-top: 0.5em;
     }
@@ -209,7 +223,7 @@ figure.unstarted:after {
     }
 }
 
-@media screen and (max-width: 360px) {
+@media screen and (max-width: 420px) and (orientation: portrait) {
 
     body > div:first-of-type {
         position: absolute;
@@ -219,6 +233,13 @@ figure.unstarted:after {
         left: 0;
     }
 
+    main {
+        -webkit-flex-grow: 0;
+        flex-grow: 0;
+        -webkit-flex-shrink: 0;
+        flex-shrink: 0;
+    }
+
     nav {
         -webkit-flex-direction: column;
         flex-direction: column;
@@ -226,6 +247,20 @@ figure.unstarted:after {
         flex-grow: 1;
         -webkit-flex-shrink: 1;
         flex-shrink: 1;
+    }
+
+    figure {
+        position: relative;
+        top: auto;
+        left: auto;
+        right: auto;
+        bottom: auto;
+    }
+
+    figure:before {
+        display: block;
+        width: 100%;
+        padding-top: 56.25%;
     }
 
     nav h1 a img {
